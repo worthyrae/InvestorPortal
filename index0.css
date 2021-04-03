@@ -6,8 +6,8 @@ body {
   font-family: serif;
 }
 .body-container {
-  margin: 25px 25px 100px 25px;
-  padding: 0;
+  padding: 25px 25px 100px 25px;
+  margin: 0;
   box-sizing: border-box;
   max-width: 699px;
   width: 100%;
