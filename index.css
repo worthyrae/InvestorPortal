@@ -62,7 +62,7 @@ body {
   box-sizing: border-box;
 }
 .offering-description {
-  width: 45%;
+  width: 47.5%;
 }
 .offering-description-text {
   font-size: 18px;
@@ -71,10 +71,10 @@ body {
   font-size: 36px;
 }
 .offering-spacer {
-  width: 10%;
+  width: 5%;
 }
 .offering-details {
-  width: 45%;
+  width: 47.5%;
   display: flex;
   flex-wrap: wrap;
   align-items: flex-start;
@@ -196,7 +196,7 @@ body {
   display: flex;
 }
 .project {
-  width: 45%;
+  width: 47.5%;
   margin-top: 12.5px;
   box-sizing: border-box;
 }
@@ -286,7 +286,7 @@ body {
   font-weight: normal;
 }
 .project-spacer {
-  width: 10%;
+  width: 5%;
 }
 .predictions {
   margin-top: 50px;
