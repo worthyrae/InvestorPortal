@@ -99,12 +99,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border-radius: 25px;
+  border-radius: 50px;
   transition: .5s;
 }
 
 .offering-equity h1{
-  font-size: px;
+  font-size: 54px;
   font-weight: normal;
 }
 .offering-duration {
@@ -115,12 +115,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border-radius: 25px;
+  border-radius: 50px;
   transition: .5s;
 }
 
 .offering-duration h1 {
-  font-size: 27px;
+  font-size: 54px;
   font-weight: normal;
 }
 .offering-shares {
@@ -131,12 +131,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border-radius: 25px;
+  border-radius: 50px;
   transition: .5s;
 }
 
 .offering-shares h1 {
-  font-size: 27px;
+  font-size: 54px;
   font-weight: normal;
 }
 .offering-discount {
@@ -147,12 +147,12 @@ body {
   align-items: center;
   justify-content: center;
   background-color: lightgray;
-  border-radius: 25px;
+  border-radius: 50px;
   transition: .5s;
 }
 
 .offering-discount h1 {
-  font-size: 27px;
+  font-size: 54px;
   font-weight: normal;
 }
 .previous-projects {
@@ -166,7 +166,7 @@ body {
   width: 100%;
 }
 .previous-projects-title h1 {
-  font-size: 36px;
+  font-size: 72px;
   font-weight: normal;
 }
 .project-container {
@@ -186,7 +186,7 @@ body {
   justify-content: flex-start;
 }
 .cover-art {
-  width: 40%;
+  width: 50%;
 }
 .cover-art img {
   width: 100%;
@@ -203,7 +203,7 @@ body {
 
 }
 .project-streams-container{
-  margin-left: 12.5px;
+  margin-left: 25px;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -217,7 +217,7 @@ body {
 .project-stream-count {
 }
 .project-stream-count h1 {
-  font-size: 36px;
+  font-size: 72px;
   font-weight: normal;
 }
 .project-stream-change {
@@ -225,7 +225,7 @@ body {
   box-sizing: border-box;
 }
 .project-stream-change h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
   color: darkgreen;
 }
@@ -233,7 +233,7 @@ body {
   width: 100%;
 }
 .project-stream-footer h1 {
-  font-size: 16px;
+  font-size: 27px;
   font-weight: normal;
   margin: 0;
   display: flex;
