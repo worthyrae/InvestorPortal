@@ -44,7 +44,7 @@ body {
   margin-left: 50px;
 }
 .artist-name h1 {
-  font-size: 45px;
+  font-size: 81px;
   font-weight: normal;
 }
 .offering-information {
@@ -59,13 +59,13 @@ body {
   width: 100%;
 }
 .offering-description-text {
-  font-size: 18px;
+  font-size: 36px;
   text-align: justify;
   text-justify: inter-word;
 
 }
 .offering-description-title {
-  font-size: 36px;
+  font-size: 72px;
 }
 .offering-spacer {
   width: 10%;
@@ -82,7 +82,7 @@ body {
   width: 100%;
 }
 .offering-details-title h1 {
-  font-size: 36px;
+  font-size: 72px;
   font-weight: normal;
 }
 .offering-details-container {
@@ -104,7 +104,7 @@ body {
 }
 
 .offering-equity h1{
-  font-size: 27px;
+  font-size: px;
   font-weight: normal;
 }
 .offering-duration {
