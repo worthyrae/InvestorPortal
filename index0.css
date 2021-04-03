@@ -6,7 +6,7 @@ body {
   font-family: serif;
 }
 .body-container {
-  margin: 2% 2% 5% 2%;
+  margin: 25px 25px 100px 25px;
   padding: 0;
   box-sizing: border-box;
   max-width: 699px;
@@ -17,7 +17,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100px;
+  height: 200px;
 }
 .artist-header {
   width: 100%;
@@ -44,14 +44,14 @@ body {
   margin-left: 50px;
 }
 .artist-name h1 {
-  font-size: 36px;
+  font-size: 45px;
   font-weight: normal;
 }
 .offering-information {
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  margin-top: 25px;
+  margin-top: 50px;
   box-sizing: border-box;
 
 }
@@ -59,19 +59,19 @@ body {
   width: 100%;
 }
 .offering-description-text {
-  font-size: 16px;
+  font-size: 18px;
   text-align: justify;
   text-justify: inter-word;
 
 }
 .offering-description-title {
-  font-size: 27px;
+  font-size: 36px;
 }
 .offering-spacer {
   width: 10%;
 }
 .offering-details {
-  margin-top: 25px;
+  margin-top: 50px;
   box-sizing: border-box;
   width: 100%;
   display: flex;
@@ -82,7 +82,7 @@ body {
   width: 100%;
 }
 .offering-details-title h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
 }
 .offering-details-container {
@@ -93,7 +93,7 @@ body {
 }
 .offering-equity {
   margin-top: 12.5px;
-  padding: 5px 10px;
+  padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -104,12 +104,12 @@ body {
 }
 
 .offering-equity h1{
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .offering-duration {
   margin-top: 12.5px;
-  padding: 5px 10px;
+  padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -120,12 +120,12 @@ body {
 }
 
 .offering-duration h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .offering-shares {
   margin-top: 12.5px;
-  padding: 5px 10px;
+  padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -136,12 +136,12 @@ body {
 }
 
 .offering-shares h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .offering-discount {
   margin-top: 12.5px;
-  padding: 5px 10px;
+  padding: 10px 20px;
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -152,7 +152,7 @@ body {
 }
 
 .offering-discount h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .previous-projects {
@@ -160,13 +160,13 @@ body {
   display: flex;
   flex-wrap: wrap;
   box-sizing: border-box;
-  margin-top: 25px;
+  margin-top: 50px;
 }
 .previous-projects-title {
   width: 100%;
 }
 .previous-projects-title h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
 }
 .project-container {
@@ -176,7 +176,7 @@ body {
 }
 .project {
   width: 100%;
-  margin-top: 12.5px;
+  margin-top: 25px;
   box-sizing: border-box;
 }
 .project-main {
@@ -186,7 +186,7 @@ body {
   justify-content: flex-start;
 }
 .cover-art {
-  width: 30%;
+  width: 40%;
 }
 .cover-art img {
   width: 100%;
@@ -217,7 +217,7 @@ body {
 .project-stream-count {
 }
 .project-stream-count h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
 }
 .project-stream-change {
@@ -225,7 +225,7 @@ body {
   box-sizing: border-box;
 }
 .project-stream-change h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
   color: darkgreen;
 }
@@ -233,7 +233,7 @@ body {
   width: 100%;
 }
 .project-stream-footer h1 {
-  font-size: 12px;
+  font-size: 16px;
   font-weight: normal;
   margin: 0;
   display: flex;
@@ -247,7 +247,7 @@ body {
   width: 100%;
 }
 .project-name h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
 }
 .project-tracks {
@@ -609,14 +609,14 @@ body {
 }
 .instructions {
   box-sizing: border-box;
-  margin-top: 25px;
+  margin-top: 50px;
   width: 100%;
 }
 .instructions-title {
   width: 100%;
 }
 .instructions-title h1 {
-  font-size: 27px;
+  font-size: 36px;
   font-weight: normal;
 }
 .instruction-content {
@@ -630,9 +630,12 @@ body {
   box-sizing: border-box;
   text-align: justify;
   text-justify: inter-word;
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 25px;
 }
 .instruction-1 h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .instruction-2 {
@@ -641,9 +644,12 @@ body {
   box-sizing: border-box;
   text-align: justify;
   text-justify: inter-word;
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 25px;
 }
 .instruction-2 h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .instruction-3 {
@@ -652,9 +658,12 @@ body {
   box-sizing: border-box;
   text-align: justify;
   text-justify: inter-word;
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 25px;
 }
 .instruction-3 h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .instruction-4 {
@@ -663,9 +672,12 @@ body {
   box-sizing: border-box;
   text-align: justify;
   text-justify: inter-word;
+  background-color: lightgray;
+  padding: 10px 20px;
+  border-radius: 25px;
 }
 .instruction-4 h1 {
-  font-size: 18px;
+  font-size: 27px;
   font-weight: normal;
 }
 .complete {
