@@ -3,11 +3,16 @@
   <head>
     <meta charset="utf-8">
     <title>Caye - Investor Portal</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="index0.css">
     <link rel="icon" type="image/jpg" href="cayeImage.jpg">
+    <script type="text/javascript">
+      if (screen.width <= 699) {
+        document.location = "index0.htm";
+      }
+//-->
+</script>
   </head>
   <body>
-
     <div class="body-container">
       <div class="header">
         <div class="artist-header">
@@ -17,9 +22,6 @@
           <div class="artist-name">
             <h1>Caye</h1>
           </div>
-        </div>
-        <div class="title">
-          <h1>Investor Portal</h1>
         </div>
       </div>
       <div class="offering-information">
@@ -59,6 +61,42 @@
           <div class="project">
             <div class="project-main">
               <div class="cover-art">
+                <a href="https://open.spotify.com/album/1LnJwjrnAfvtBvhWwOnSsS?si=WrxfPA-iTh2jKctrWDk0tw">
+                  <img src="shades.jpg" alt="Cover">
+                </a>
+              </div>
+              <div class="project-stream-spacer">
+
+              </div>
+              <div class="project-streams-container">
+                <div class="project-streams">
+                  <div class="project-stream-count">
+                    <h1>1,093,147</h1>
+                    <div class="project-stream-footer">
+                      <h1>Total First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams + Total First Year Youtube Streams</span></div></h1>
+                    </div>
+                  </div>
+                  <div class="project-stream-change">
+                    <h1></h1>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <div class="project-name">
+                <h1>Shades, Pt. 1</h1>
+              </div>
+              <div class="project-tracks">
+                <h1>7 Tracks</h1>
+              </div>
+              <div class="project-date">
+                <h1>2016</h1>
+              </div>
+            </div>
+          </div>
+          <div class="project">
+            <div class="project-main">
+              <div class="cover-art">
                 <a href="https://open.spotify.com/album/0LYqYdtH6Rm9tZ32FTONOL?si=_0nRGlvqSmKb7FlIycAB4g">
                   <img src="pinkTreeParadise.jpg" alt="Cover">
                 </a>
@@ -95,54 +133,32 @@
           <div class="project-spacer">
 
           </div>
-          <div class="project">
-            <div class="project-main">
-              <div class="cover-art">
-                <a href="https://open.spotify.com/album/1LnJwjrnAfvtBvhWwOnSsS?si=WrxfPA-iTh2jKctrWDk0tw">
-                  <img src="shades.jpg" alt="Cover">
-                </a>
-              </div>
-              <div class="project-stream-spacer">
 
-              </div>
-              <div class="project-streams-container">
-                <div class="project-streams">
-                  <div class="project-stream-count">
-                    <h1>1,093,147</h1>
-                    <div class="project-stream-footer">
-                      <h1>Total First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams + Total First Year Youtube Streams</span></div></h1>
-                    </div>
-                  </div>
-                  <div class="project-stream-change">
-                    <h1></h1>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="project-info">
-              <div class="project-name">
-                <h1>Shades, Pt. 1</h1>
-              </div>
-              <div class="project-tracks">
-                <h1>7 Tracks</h1>
-              </div>
-              <div class="project-date">
-                <h1>2016</h1>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <div class="predictions">
+        <div class="instructions">
+          <div class="instructions-title">
+            <h1>Instructions</h1>
+          </div>
+          <div class="instruction-content">
+            <div class="instruction-1">
+              <h1>1. Select the streams value that you think is most likely to occur</h1>
+            </div>
+            <div class="instruction-2">
+              <h1>2. Select how many shares you would potentially buy at this price</h1>
+            </div>
+            <div class="instruction-3">
+              <h1>3. Enter in your personal information to stay updated on when you can buy these shares</h1>
+            </div>
+            <div class="instruction-4">
+              <h1>4. Submit to enter your prediction and compare it to others</h1>
+            </div>
+          </div>
+        </div>
         <div class="predictions-title-container">
           <div class="predictions-title">
             <h1>Predicted Streams</h1>
-          </div>
-          <div class="cost-title">
-            <h1>Predicted Cost</h1>
-          </div>
-          <div class="purchase-title">
-            <h1>Predicted Profit</h1>
           </div>
         </div>
         <div class="predictions-container">
@@ -165,6 +181,11 @@
           <div class="prediction-spacer">
 
           </div>
+          <div class="predictions-title-container">
+            <div class="cost-title">
+              <h1>Predicted Cost</h1>
+            </div>
+          </div>
           <div class="share-prediction">
             <div class="share-cost">
               <div class="share-price">
@@ -183,6 +204,11 @@
           </div>
           <div class="prediction-spacer">
 
+          </div>
+          <div class="predictions-title-container">
+            <div class="purchase-title">
+              <h1>Predicted Profit</h1>
+            </div>
           </div>
           <div class="purchase-prediction">
             <div class="share-breakdown">
@@ -218,32 +244,10 @@
           <div class="prediction-spacer">
 
           </div>
-          <div class="instructions">
-            <div class="instructions-title">
-              <h1>Instructions</h1>
-            </div>
-            <div class="instruction-content">
-              <div class="instruction-1">
-                <h1>1. Select the streams value that you think is most likely to occur</h1>
-              </div>
-              <div class="instruction-2">
-                <h1>2. Select how many shares you would potentially buy at this price</h1>
-              </div>
-              <div class="instruction-3">
-                <h1>3. Enter in your personal information to stay updated</h1>
-              </div>
-              <div class="instruction-4">
-                <h1>4. Submit to enter your prediction and compare it to others</h1>
-              </div>
-            </div>
-          </div>
           <div class="prediction-spacer">
 
           </div>
           <div class="complete">
-            <div class="complete-title">
-              <h1>Complete</h1>
-            </div>
             <div class="submit-button">
               <input type="submit" name="" value="Submit Prediction">
             </div>
