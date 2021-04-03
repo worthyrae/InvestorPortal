@@ -583,7 +583,7 @@ body {
   width: 10%;
 }
 .last-name {
-  margin-top: 12.5px;
+  margin-top: 25px;
   box-sizing: border-box;
   width: 100%;
   border: 0;
@@ -601,7 +601,7 @@ body {
   transition: .5s;
 }
 .email {
-  margin-top: 12.5px;
+  margin-top: 25px;
   width: 100%;
   border: 0;
   font-size: 18px;
