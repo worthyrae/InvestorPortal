@@ -5,7 +5,6 @@
     <title>Caye - Investor Portal</title>
     <link rel="stylesheet" href="caye.css">
     <link rel="icon" type="image/jpg" href="cayeImage.jpg">
-
   </head>
   <body>
     <div class="body-container">
@@ -83,7 +82,7 @@
                     <div class="project-stream-count">
                       <h1>1,093,147</h1>
                       <div class="project-stream-footer">
-                        <h1>Total First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams + Total First Year Youtube Streams</span></div></h1>
+                        <h1>Total First Year Streams <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams</span></div></h1>
                       </div>
                     </div>
                     <div class="project-stream-change">
@@ -112,7 +111,6 @@
                   <div class="project-name">
                     <h1>Pink Tree Paradise</h1>
                   </div>
-
                 </div>
                 <div class="project-vertical-spacer">
 
@@ -122,7 +120,7 @@
                     <div class="project-stream-count">
                       <h1>5,692,031</h1>
                       <div class="project-stream-footer">
-                        <h1>Total First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams + Total First Year Youtube Streams</span></div></h1>
+                        <h1>Total First Year Streams <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Total First Year Streams = Total First Year Spotify Streams + Total First Year Apple Music Streams</span></div></h1>
                       </div>
                     </div>
                     <div class="project-stream-change">
@@ -166,13 +164,13 @@
               <div class="total-streams-count">
                 <h1 id="streamsTotal"></h1>
                 <div class="total-streams-footer">
-                  <h1>Proj. First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many Spotify, Apple Music, and Youtube streams the album will recieve within the given duration</span></div></h1>
+                  <h1>Proj. First Year Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many Spotify and Apple Music streams the album will recieve within the given duration</span></div></h1>
                 </div>
               </div>
               <div class="total-streams-change">
                 <h1 id="streamsChange"></h1>
                 <div class="total-streams-change-footer">
-                  <h1>Proj. Growth<div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many Spotify, Apple Music, and Youtube streams the album will recieve within the given duration</span></div></h1>
+                  <h1>Proj. Growth %<div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Projected Growth (%) = (Projected First Year Streams / Total First Year Streams of Previous Album - 1) * 100</span></div></h1>
                 </div>
               </div>
             </div>
@@ -199,7 +197,7 @@
               <div class="stream-profit">
                 <h1 id="sharesCost"></h1>
                 <div class="stream-profit-footer">
-                  <h1>Total Cost <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Cost per Share = Total First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares * Potential Share(s)</span></div></h1>
+                  <h1>Total Cost <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Cost per Share = Projected First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares * Potential Share(s)</span></div></h1>
                 </div>
               </div>
             </div>
@@ -223,7 +221,7 @@
               <div class="profit-total">
                 <h1 id="totalProfit"></h1>
                 <div class="profit-total-footer">
-                  <h1>Total Assumed Return <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Total Assumed Return = Total First Year Streams * Average Revenue per Stream * Streaming Revenue % / Total Shares * Potential Share(s)</span></div></h1>
+                  <h1>Total Assumed Return <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Total Assumed Return = Projected First Year Streams * Average Revenue per Stream * Streaming Revenue % / Total Shares * Potential Share(s)</span></div></h1>
                 </div>
               </div>
             </div>
@@ -301,7 +299,6 @@
                 var totalProfitStr = "$" + parseFloat(totalProfitInt).toFixed(2);
                 totalProfit.innerHTML = totalProfitStr;
                 totalCost.innerHTML = totalCostStr;
-
                 if (sharesValInt > 1) {
                   sharesPurchased.innerHTML = sharesValInt;
                   sharesName.innerHTML = 'Potential Shares <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many shares you would be willing to buy</span></div>';

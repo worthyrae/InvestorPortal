@@ -746,6 +746,8 @@ body {
 .submit-button input {
   border: 0;
   box-sizing: border-box;
+  background-color: white;
+  border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
   font-size: 45px;
@@ -768,11 +770,11 @@ body {
   color: white;
   text-align: center;
   padding: 5px 5px;
-  border-radius: 6px;
-  width: 240px;
+  border-radius: 10px;
+  width: 500px;
   top: 100%;
   left: 50%;
-  margin-left: -120px;
+  margin-left: -200px;
   position: absolute;
   z-index: 1;
 }
@@ -791,11 +793,11 @@ body {
   color: white;
   text-align: center;
   padding: 5px 5px;
-  border-radius: 6px;
-  width: 240px;
+  border-radius: 10px;
+  width: 500px;
   top: 100%;
   left: 50%;
-  margin-left: -240px;
+  margin-left: -450px;
   position: absolute;
   z-index: 1;
 }
