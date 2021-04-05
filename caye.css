@@ -63,8 +63,7 @@ body {
 }
 .offering-description-text {
   font-size: 45px;
-  text-align: justify;
-  text-justify: inter-word;
+  line-height: 70px;
 
 }
 .offering-description-title {
@@ -587,7 +586,7 @@ body {
   border: 0;
   width: 100%;
   font-size: 45px;
-  border-bottom: 2px solid lightgray;
+
 }
 .first-name:focus {
   outline: none;
@@ -615,11 +614,10 @@ body {
   border: 0;
   font-size: 45px;
   border-radius: 0%;
-  border-bottom: 2px solid lightgray;
+
 }
 .last-name:focus {
   outline: none;
-  border-bottom: 2px solid black;
   transition: .5s;
 }
 .last-name:focus::placeholder {
@@ -638,16 +636,36 @@ body {
   width: 100%;
   border: 0;
   font-size: 45px;
-  border-bottom: 2px solid lightgray;
+
 }
 .email:focus {
   outline: none;
-  border-bottom: 2px solid black;
   transition: .5s;
 }
 .email:focus::placeholder {
   color: white;
   transition: .5s;
+}
+.email-checkbox {
+  width: 100%;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 25px;
+  box-sizing: border-box;
+  padding: 50px 50px;
+  margin-top: 50px;
+  display: flex;
+  align-items: center;
+}
+.email-checkbox input {
+  height: 45px;
+  width: 45px;
+  box-sizing: border-box;
+  margin-right: 25px;
+}
+.email-checkbox h1 {
+  font-weight: normal;
+  font-size: 36px;
+  color: gray;
 }
 ::placeholder {
   color: gray;
@@ -674,8 +692,6 @@ body {
   width: 100%;
   margin-top: 25px;
   box-sizing: border-box;
-  text-align: justify;
-  text-justify: inter-word;
   padding: 50px 50px;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -688,8 +704,6 @@ body {
   width: 100%;
   margin-top: 50px;
   box-sizing: border-box;
-  text-align: justify;
-  text-justify: inter-word;
   padding: 50px 50px;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -702,8 +716,6 @@ body {
   width: 100%;
   margin-top: 50px;
   box-sizing: border-box;
-  text-align: justify;
-  text-justify: inter-word;
   padding: 50px 50px;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -716,8 +728,6 @@ body {
   width: 100%;
   margin-top: 50px;
   box-sizing: border-box;
-  text-align: justify;
-  text-justify: inter-word;
   padding: 50px 50px;
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
@@ -758,6 +768,7 @@ body {
   -moz-appearance: none;
   appearance: none;
   padding: 50px 50px;
+  color: gray;
 }
 .tooltip {
   margin-left: 5px;
@@ -815,6 +826,7 @@ input[type="text"] {
 }
 input[type="submit"] {
   font-size: 54px;
+  border-radius: 25px;
 }
 * {
   margin: 0;
