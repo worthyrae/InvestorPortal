@@ -573,14 +573,19 @@ body {
   width: 100%;
 
 }
-.first-name {
+.first-name-container {
   width: 100%;
-  border: 0;
-  font-size: 36px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 25px;
   box-sizing: border-box;
   padding: 50px 50px;
+    margin-top: 50px;
+}
+.first-name {
+  border: 0;
+  width: 100%;
+  font-size: 36px;
+  border-bottom: 2px solid lightgray;
 }
 .first-name:focus {
   outline: none;
@@ -594,16 +599,21 @@ body {
 .input-spacer {
   width: 10%;
 }
-.last-name {
-  margin-top: 50px;
-  box-sizing: border-box;
+.last-name-container {
   width: 100%;
-  border: 0;
-  font-size: 36px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 25px;
   box-sizing: border-box;
   padding: 50px 50px;
+  margin-top: 50px;
+}
+.last-name {
+  box-sizing: border-box;
+  width: 100%;
+  border: 0;
+  font-size: 36px;
+  border-radius: 0%;
+  border-bottom: 2px solid lightgray;
 }
 .last-name:focus {
   outline: none;
@@ -614,15 +624,19 @@ body {
   color: white;
   transition: .5s;
 }
-.email {
-  margin-top: 50px;
+.email-container {
   width: 100%;
-  border: 0;
-  font-size: 36px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   border-radius: 25px;
   box-sizing: border-box;
   padding: 50px 50px;
+  margin-top: 50px;
+}
+.email {
+  width: 100%;
+  border: 0;
+  font-size: 36px;
+  border-bottom: 2px solid lightgray;
 }
 .email:focus {
   outline: none;
@@ -792,6 +806,9 @@ body {
 }
 .tooltip1:hover .tooltiptext1 {
   visibility: visible;
+}
+.input[type="text"] {
+  font-family: serif;
 }
 * {
   margin: 0;
