@@ -349,6 +349,8 @@ body {
 .total-streams-change-footer h1 {
   color: black;
   font-size: 27px;
+  display: flex;
+  justify-content: flex-end;
 }
 .stream-bar {
   width: 100%;
@@ -750,7 +752,7 @@ body {
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
-  font-size: 45px;
+  font-size: 54px;
   font-family: serif;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -761,7 +763,9 @@ body {
   margin-left: 5px;
   box-sizing: border-box;
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
+
 }
 .tooltip .tooltiptext {
   visibility: hidden;
@@ -784,7 +788,8 @@ body {
 .tooltip1 {
   margin-left: 5px;
   position: relative;
-  display: inline-block;
+  display: flex;
+  align-items: center;
 }
 .tooltip1 .tooltiptext1 {
   visibility: hidden;
@@ -804,8 +809,12 @@ body {
 .tooltip1:hover .tooltiptext1 {
   visibility: visible;
 }
+
 input[type="text"] {
   font-family: serif;
+}
+input[type="submit"] {
+  font-size: 54px;
 }
 * {
   margin: 0;
