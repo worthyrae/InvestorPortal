@@ -584,7 +584,7 @@ body {
 .first-name {
   border: 0;
   width: 100%;
-  font-size: 36px;
+  font-size: 45px;
   border-bottom: 2px solid lightgray;
 }
 .first-name:focus {
@@ -611,7 +611,7 @@ body {
   box-sizing: border-box;
   width: 100%;
   border: 0;
-  font-size: 36px;
+  font-size: 45px;
   border-radius: 0%;
   border-bottom: 2px solid lightgray;
 }
@@ -635,7 +635,7 @@ body {
 .email {
   width: 100%;
   border: 0;
-  font-size: 36px;
+  font-size: 45px;
   border-bottom: 2px solid lightgray;
 }
 .email:focus {
@@ -746,19 +746,14 @@ body {
 .submit-button input {
   border: 0;
   box-sizing: border-box;
-  background-color: white;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-  border-radius: 25px;
   box-sizing: border-box;
-  padding: 50px 50px;
-  font-size: 36px;
+  font-size: 45px;
   font-family: serif;
-}
-.submit-button input:hover {
-  color: white;
-  padding: 10px 40px;
-  transition: .5s;
-  cursor: pointer;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 50px 50px;
 }
 .tooltip {
   margin-left: 5px;
@@ -807,7 +802,7 @@ body {
 .tooltip1:hover .tooltiptext1 {
   visibility: visible;
 }
-.input[type="text"] {
+input[type="text"] {
   font-family: serif;
 }
 * {
