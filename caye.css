@@ -590,7 +590,6 @@ body {
 }
 .first-name:focus {
   outline: none;
-  border-bottom: 2px solid black;
   transition: .5s;
 }
 .first-name:focus::placeholder {
@@ -762,13 +761,14 @@ body {
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
   box-sizing: border-box;
-  font-size: 54px;
+  font-size: 45px;
   font-family: serif;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
   padding: 50px 50px;
   color: gray;
+
 }
 .tooltip {
   margin-left: 5px;
@@ -825,7 +825,7 @@ input[type="text"] {
   font-family: serif;
 }
 input[type="submit"] {
-  font-size: 54px;
+  font-size: 45px;
   border-radius: 25px;
 }
 * {
