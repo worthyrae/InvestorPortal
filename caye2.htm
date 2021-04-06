@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Caye - Investor Portal</title>
+    <link rel="stylesheet" href="caye2.css">
+    <link rel="icon" type="image/jpg" href="cayeImage.jpg">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+  </head>
+  <body>
+    <div class="body-container">
+      <div class="header">
+        <div class="artist-header">
+          
+        </div>
+      </div>
+      <div class="offering-information">
+        <div class="graph-title">
+          <h1>All Predictions</h1>
+        </div>
+        <div class="graph-container">
+          <div id="distribution-graph">
+          </div>
+        </div>
+        <div class="offering-details">
+          <div class="predictions-title-container">
+            <div class="cost-title">
+              <h1>Comparison</h1>
+            </div>
+          </div>
+          <div class="share-prediction">
+            <div class="share-cost">
+              <div class="share-price">
+                <h1 id="predictedStreams"></h1>
+                <div class="share-price-footer">
+                  <h1>Predicted Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Cost per Share = Total First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares</span></div></h1>
+                </div>
+              </div>
+              <div class="stream-profit">
+                <h1 id="streamsDifference"></h1>
+                <div class="stream-profit-footer">
+                  <h1>Prediction Difference <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Cost per Share = Projected First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares * Potential Share(s)</span></div></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="offering-details">
+          <div class="predictions-title-container">
+            <div class="cost-title">
+              <h1>Market</h1>
+            </div>
+          </div>
+          <div class="share-prediction">
+            <div class="share-cost">
+              <div class="market-streams">
+                <h1 id="actualStreams"></h1>
+                <div class="share-price-footer">
+                  <h1>Market Estimated Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">Cost per Share = Total First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares</span></div></h1>
+                </div>
+              </div>
+              <div class="stream-profit">
+                <h1 id="actualPPP"></h1>
+                <div class="stream-profit-footer">
+                  <h1>Price per Share <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Cost per Share = Projected First Year Streams * Average Revenue per Stream * Streaming Revenue % * (1 - Discount Rate) / Total Shares * Potential Share(s)</span></div></h1>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="predictions-title-container">
+          <div class="cost-title">
+            <h1>Outcomes</h1>
+          </div>
+        </div>
+        <div class="purchase-prediction">
+          <div class="share-breakdown">
+            <div class="purchase-total">
+              <h1 id="totalS"></h1>
+              <div class="purchase-total-footer">
+                <h1>Actual Streams <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many shares you would be willing to buy</span></div></h1>
+              </div>
+            </div>
+            <div class="profit-total">
+              <h1 id="profitPS"></h1>
+              <div class="profit-total-footer">
+                <h1>Share Return <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Total Assumed Return = Projected First Year Streams * Average Revenue per Stream * Streaming Revenue % / Total Shares * Potential Share(s)</span></div></h1>
+              </div>
+            </div>
+          </div>
+          <div class="shares-bar">
+            <input type="range" min="1000000" max="25000000" value="" id="spBar" class="shares-range">
+          </div>
+        </div>
+        <div class="predictions-title-container">
+          <div class="cost-title">
+            <h1>Profit</h1>
+          </div>
+        </div>
+        <div class="stream-prediction">
+          <div class="total-streams">
+            <div class="total-streams-count">
+              <h1 id="sharesTotal"></h1>
+              <div class="total-streams-footer">
+                <h1>Total Shares <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many Spotify and Apple Music streams the album will recieve within the given duration</span></div></h1>
+              </div>
+            </div>
+            <div class="total-streams-change">
+              <h1 id="netProfit"></h1>
+              <div class="total-streams-change-footer">
+                <h1>Net Profit <div class="tooltip1"><img class="tooltip1" src="help-circle.svg" alt="help"><span class="tooltiptext1">Streaming growth % change from my last album to my upcoming album</span></div></h1>
+              </div>
+            </div>
+          </div>
+          <div class="stream-bar">
+            <input type="range" min="1" max="50" value="1" id="asBar" class="range-bar">
+          </div>
+        </div>
+
+      </div>
+
+
+            <script>
+              function numberWithCommas(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+              }
+
+              var totalProfitInt = streamsValInt * .0038 * .2 / 1000  * sharesValInt;
+              var totalProfitStr = "$" + parseFloat(totalProfitInt).toFixed(2);
+              totalProfit.innerHTML = totalProfitStr;
+              spBar.oninput = function() {
+                sharesValInt = this.value;
+                var streamsVal = numberWithCommas(streamsValInt)
+                streamsTotal.innerHTML = streamsVal;
+                var sharePriceInt = streamsValInt * .0038 * .2 / 1000 * (1 - .05);
+                var sharePrice = "$" + parseFloat(sharePriceInt).toFixed(2);
+                shareCost.innerHTML = sharePrice;
+                var totalCostInt = sharesValInt * sharePriceInt;
+                var totalCostStr = "$" + parseFloat(totalCostInt).toFixed(2);
+                totalCost.innerHTML = totalCostStr;
+                var totalProfitInt = streamsValInt * .0038 * .2 / 1000 * sharesValInt;
+                var totalProfitStr = "$" + parseFloat(totalProfitInt).toFixed(2);
+                totalProfit.innerHTML = totalProfitStr;
+                totalCost.innerHTML = totalCostStr;
+                if (sharesValInt > 1) {
+                  sharesPurchased.innerHTML = sharesValInt;
+                  sharesName.innerHTML = 'Potential Shares <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many shares you would be willing to buy</span></div>';
+                } else {
+                  sharesPurchased.innerHTML = sharesValInt;
+                  sharesName.innerHTML = 'Potential Share <div class="tooltip"><img class="tooltip" src="help-circle.svg" alt="help"><span class="tooltiptext">How many shares you would be willing to buy</span></div>';
+                }
+              }
+              streamsSlider.oninput = function() {
+                streamsValInt = this.value;
+                var streamsVal = numberWithCommas(streamsValInt)
+                streamsTotal.innerHTML = streamsVal;
+                var sharePriceInt = streamsValInt * .0038 * .2 / 1000 * (1 - .05);
+                var sharePrice = "$" + parseFloat(sharePriceInt).toFixed(2);
+                shareCost.innerHTML = sharePrice;
+                var totalCostInt = sharesValInt * sharePriceInt;
+                var totalCostStr = "$" + parseFloat(totalCostInt).toFixed(2);
+                totalCost.innerHTML = totalCostStr;
+                var totalProfitInt = streamsValInt * .0038 * .2 / 1000 * sharesValInt;
+                var totalProfitStr = "$" + parseFloat(totalProfitInt).toFixed(2);
+                totalProfit.innerHTML = totalProfitStr;
+                changeVal = streamsValInt / 5467892 * 100 - 100;
+                if (changeVal < 0) {
+                  changeVal = parseFloat(changeVal).toFixed(0)+"%";
+                  changeStr = changeVal.toString();
+                  streamsChange.style.color = "darkred";
+                  streamsChange.innerHTML = changeStr;
+                } else{
+                  changeVal = parseFloat(changeVal).toFixed(0)+"%";
+                  changeStr = changeVal.toString();
+                  changeStr = "" + changeStr + "";
+                  streamsChange.style.color = "darkgreen";
+                  streamsChange.innerHTML = changeStr;
+                }
+              }
+            </script>
+            <script type="text/javascript">
+              var myTickFormat = function (d) {//Logic to reduce big numbers
+                var limits = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000];
+                var shorteners = ['Q','T','B','M','K'];
+                for(var i in limits) {
+                  if(d > limits[i]) {
+                    return (d/limits[i]).toFixed() + shorteners[i];
+                  }
+                }
+                return d;
+              };
+              var myTickFormat2 = function (d) {//Logic to reduce big numbers
+                var limits = [1000000000000000, 1000000000000, 1000000000, 1000000, 1000];
+                var shorteners = ['Q','T','B','M','K'];
+                for(var i in limits) {
+                  if(d > limits[i]) {
+                    return (d/limits[i]).toFixed(1) + shorteners[i];
+                  }
+                }
+                return d;
+              };
+              function numberWithCommas(num) {
+                return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+              }
+              var data = new Array();
+              data[0] = new Array (12500000, 5);
+              data[1] = new Array (15000000, 2);
+              data[2] = new Array (18000000, 4);
+              data[3] = new Array (5000000, 8);
+              data[4] = new Array (7000000, 6);
+              data[5] = new Array (10000000, 15);
+              data[6] = new Array (11000000, 7);
+              data[7] = new Array (13000000, 9);
+              data[8] = new Array (20000000, 3);
+              data[9] = new Array (8000000, 2);
+              data[10] = new Array (900000, 5);
+              data[11] = new Array (14000000, 2);
+              data[12] = new Array (22000000, 4);
+              data[13] = new Array (2000000, 8);
+              data[14] = new Array (9000000, 6);
+              data[15] = new Array (7000000, 15);
+              data[16] = new Array (24000000, 7);
+              data[17] = new Array (17000000, 9);
+              data[18] = new Array (8000000, 3);
+              data[19] = new Array (4000000, 2);
+              var dataCleaned = new Array();
+              adata = [11893233,9044996,11537498,6484711,7995403,18376489,13742850,8195683,9016427,8917001,13407152,14867522,14724357,11839881,15978988,12340599,15254206,14985810,12033495,14428968,13772731,14667213,17137814,7104803,13392958,9944897,16396807,11429434,13639472,15729979,15065624,11352806,9459714,12589357,10301828,14298774,11367377,9119255,12198758,13360386,11376319,15402333,4598179,4418050,15683310,12914609,11995486,13122786,5970605,18418161,10212847,13820581,15169946,9421037,17857682,16721068,9220907,13055960,9765663,7792445,15648295,12731144,17071668,9310288,12207026,13145680,15372852,14443142,18974381,12310235,9603725,8429918,12495567,10448102,14924632,7781070,10251717,12286510,7231058,12167560,16094469,13047957,8419205,10165802,14497813,9845760,8424882,10032166,11620476,17269527,5025503,18112615,11281406,14067196,16681731,13863412,13479505,12908193,7980990,10445322,7128792,12470336,12038940,8342945,8576879,15176334,14172655,10219237,11801303,6856767,12547762,13130415,14107012,14844108,10714535,10917881,12365623,12641835,11417973,10523394,11928315,17179214,14390131,11927806,9652073,14293789,15945189,11952460,10084770,14213110,13306021,15081035,13099866,13069852,15780149,13174071,10498815,12170226,18743883,17591782,10878172,14573112,14859224,15100743,12481108,2721870,12184954,11193871,12404482,13699918,11304149,13260293,17513183,10387291,12296163,12914080,14746856,10415293,13358096,13177236,12396488,15323965,10191846,10454238,13943287,8204300,12151106,13077150,17877558,10911336,11857377,13695729,9585257,10634971,17232727,11576214,15302484,16184986,9947582,10530298,15584181,15952256,13260243,17108412,9039008,12324806,16333608,10410367,12658159,8959121,11715553,9829453,17241354,8837031,15477561,16977046,7550579,16213307,7584204,13033831,11034463,13912567,14070784,14587117,17133075,16228657,11680330,10795203,12606419,8707030,8926889,10150290,13949872,10589136,8668398,10477315,11036544,23158506,12308401,12510240,12504755,13766117,15471617,13366510,8624529,9577611,10132044,16136123,10941585,14780841,12061437,12462091,15564050,9282772,12854633,10744885,10643001,12857281,13287196,14806667,11917590,10924822,9822971,11658125,9160801,15987207,14622472,12632503,12913682,12915237,7715728,8425306,11847789,13620907,9581195,10249928,10413246,15161942,13958339,17428658,15678450,11044055,16476226,11465570,8085461,13161711,14109516,9609200,11317688,10915904,10490675,12834064,9526757,15988174,10965473,19245543,11108167,4302928,13406751,10117630,14392935,10031158,15785630,13003629,13934499,13230142,13813820,9843471,12162603,6397956,15860180,10080753,13169992,14094022,17110244,13056202,10539171,19612252,19470840,13298847,9306878,19112838,9163204,7404723,9002059,11923946,11123553,13823177,12683880,12405286,16105364,12931393,9708666,12544459,9042474,13931225,12358493,9933602,8985642,13802652,9478840,8224812,14309377,14156793,11521956,16567477,14312474,11579232,14565604,14202872,14406785,10822259,9464788,13460311,8840749,13466956,11699834,11219581,14265390,12633211,11040508,7751843,8903604,13246384,12258108,16726276,16739210,17535912,11664767,10780654,13717932,13556270,11019374,9825428,12736598,18855636,16699700,14384923,17349720,10622654,14539977,14797435,10754185,19151618,10982480,12102884,9629094,11818813,9322753,11225933,12668633,8489068,12548900,10723233,7885623,9224502,14603222,12878888,13618329,15762997,10966039,11175767,15870337,11784021,12770881,9892061,16011941,12676834,17290370,6646967,12589823,14180535,8380399,12504490,12542305,10272858,14706356,14518187,11624314,15596031,13129687,15128359,13086822,17946468,13411667,13662435,9279321,12148115,15484214,12788184,13938889,11677927,6865501,8505151,16801280,9317536,13302993,1540770,7565672,11313787,14744226,10510273,14107113,12611464,16450648,11857498,17741506,11142092,15608658,3914652,6536436,14894748,10110091,12031443,10863553,12776705,14982577,10978920,13163780,12864455,8482821,15546623,9255386,11824441,8382595,10137819,6531778,12296283,14362909,17241560,13873850,14620235,9319432,11979798,14909255,14372646,8984139,18661631,11908095,11918395,9993666,9785174,14231886,14361239,13404333,15158255,10119914,13408120,9050789,10560188,11893403,10913169,11204091,11360034,12883637,14874930,9997984,12527514,15751492,9862805,9395515,8374585,13330832,13990873,13118438,13478916,15244860,9079141,9433593,7766639,4613103,14040066,14110673,20783253,15733660,10346760,8757488,16115338,11692996,16135029,9678429,16863116,11882633,13881461,10299129,14146451,15733623,5733258,12330392,10847667,16557878,15833388,10074096,3280932,9064229,12957117,15137340,11626523,18876989,11887534,11544550,11714590,14254987,6776055,10191402,8229382,14741426,10852046,11860793,12536256,11164594,16415725,11442919,13445269,6365642,13797055,14488679,12902995,10526386,13815653,11393743,14642522,12643141,11716813,12367872,12437622,9559194,13488340,10134454,13907154,12089148,16314505,15650116,11983970,8993201,16649172,17074905,15805760,12802511,11485759,13193709,14557570,16128794,11968432,10495160,9940040,15379871,13653708,9816780,11531569,12981720,17405212,13935161,15506775,13180325,6364410,11145285,8234447,16217962,10159856,11402185,12930247,9612328,11751574,14430095,10386595,8214162,11988905,9788270,10739874,10348868,12305228,13874872,14623930,16432386,13134133,10280207,13423625,10709200,17229532,14928431,11941140,11514544,11956535,13721734,13506170,11199458,16104145,15533647,21726263,8461550,10476061,12404301,12556807,8139822,9280964,15976589,15097294,13698767,14754655,12989852,10403163,9591988,11525833,11996646,9125368,8641735,13640787,13380766,16118994,17024452,8409439,16537418,11921836,17904108,11166583,14037430,8390370,12028532,16221399,16526228,8539169,12304652,12669046,14864486,13425310,7260417,14660285,13505092,8425604,14304480,14917240,10478685,16307517,11387364,13892117,13786966,10035639,11212491,8783689,17696399,9975794,10462045,9165277,13806524,6099421,7464268,10990674,10092382,15347291,9744531,10851914,15988725,16739687,5981512,18986202,15420858,11496101,9834982,9033777,10264856,14811648,14669864,11502539,11852315,13255261,16494894,15176036,19947504,17471794,9526589,16044892,14237683,8981922,10521251,12757439,18270289,16130748,12372483,12495989,13772403,11417909,16188860,13973350,20232067,16686965,15195926,8784867,10637742,9072278,13330153,9174254,10352727,8035903,9660571,14940942,13100934,15980785,9913385,8778422,6249162,15550209,13201671,11993866,12988584,5055302,7504235,17596460,10215626,12586048,13829102,10564273,13702944,9925066,16832042,11688935,11490510,15182057,17122171,10826981,18323504,11142196,11403482,10969546,11700552,12907086,10917313,17348770,12497652,13370558,14398808,11788391,17700076,8788298,13168528,12826778,11645211,17979130,7817434,12282543,17597422,19909597,10466650,13871181,11987155,12088131,14767282,12251843,8560137,9802130,13732397,12900250,8027984,10417063,10403894,17354810,7894635,18387393,13264043,15320060,8422678,16818336,12728853,13020707,17747028,20578790,14810771,16943780,12870571,11033487,11618220,11996918,5804487,13570133,8124335,10720646,15128623,14351372,17437570,10981280,14780790,11206191,13209925,14427683,11083153,16653353,12852527,15395286,14947841,12399540,14639130,9218374,8671355,12713998,18760481,11206025,14432947,13639896,12022338,18095215,11941004,18555265,11862616,12592368,12393936,11772534,12556711,9048054,15465291,10644047,10913698,8016099,13899681,16865995,13289219,12365925,14134037,11933592,14450721,10220820,8979851,10480960,12607548,14180579,14645853,13175818,10774999,10632213,12974976,12817906,13485287,14196249,12899958,17566656,12284388,11002735,12965372,13579047,15442352,12881948,9268396,12829244,14462645,14804113,8169190,10696342,15277245,19050194,9622453,13363477,8587036,7760095,10264976,11344582,14935030,10223381,10946030,18921541,15752956,11022372,7940585,3009900,19081327,9904773,12945896,10336087,10064241,13686881,15494181,11470628,9302188,11461148,8627981,13584865,14186628,11169361,11660769,12540144,15736759,14528107,14683079,15055357,10921109,13856224,14716772,14302326,10088884,15733626,9202259,19615604,13654238,11550062,9072855,12578340,15294409,12948709,11484886,13388309,11957215,12863332,17228473,8755594,11625255,13133484,14407288,12975892,13310218,12180656,14551343,7058772,13392333,12914194,12432015,7614842,5889567,16458874,8882460,14144509,5182117,6398208,13405858,13081374,13501332,16607459,11882202,8402848,14011878,11473398,16895121,10194310,13073334,11582037,16110391,14588150,13685980,12662207,15009380,12550264,13852136,12084512,17218105,9300307,10235224,13405620,12526725,11194995,13667052,10712858,13762227,13198088,9585583,10068478,12413342,20249877,14060795,11978083,11724949,13239412,15266228,11394391,9744414,13279153,9820447,8177980,15623789,13102942,14922466,8591896,11959904,11153795,6377142,11572891,8120260,20481418,14233999,11655080,9569410,9361112,12626571];
+              for (let step = 0; step < data.length; step++) {
+                for (let step2 = 1; step2 < data[step][1] + 1; step2++) {
+                  dataCleaned.push(data[step][0]);
+                }
+              }
+              var total = 0;
+              for (var i = 0; i < adata.length; i++) {
+                total += adata[i];
+              }
+              var avg = total / adata.length;
+              var avgRound = Math.round(avg);
+              document.getElementById('spBar').value = avgRound;
+              var avgRoundStr = numberWithCommas(avgRound);
+              document.getElementById('totalS').innerHTML = avgRoundStr;
+              var estSharePrice = avgRound * .0038 * .2 / 1000 * (1 - .05);
+              var estSharePriceStr = "$" + parseFloat(estSharePrice).toFixed(2);
+              document.getElementById('actualPPP').innerHTML = estSharePriceStr;
+              var shareReturn = avgRound * .0038 * .2 / 1000;
+              var shareReturnStr = "$" + parseFloat(shareReturn).toFixed(2);
+              document.getElementById('profitPS').innerHTML = shareReturnStr;
+              var ushares = document.getElementById('asBar').value;
+              document.getElementById('sharesTotal').innerHTML = ushares;
+              var nProfit = avgRound * .0038 * .2 / 1000 * ushares - estSharePrice * ushares;
+              var nProfitStr = "$" + parseFloat(nProfit).toFixed(2);
+              document.getElementById('netProfit').innerHTML = nProfitStr;
+              document.getElementById('netProfit').style.color = "green";
+              spBar.oninput = function () {
+                navgRound = this.value;
+                var navgRoundStr = numberWithCommas(navgRound);
+                document.getElementById('totalS').innerHTML = navgRoundStr;
+                var shareReturn = navgRound * .0038 * .2 / 1000;
+                var shareReturnStr = "$" + parseFloat(shareReturn).toFixed(2);
+                document.getElementById('profitPS').innerHTML = shareReturnStr;
+                nProfit = navgRound * .0038 * .2 / 1000 * ushares - estSharePrice * ushares;
+                nProfitStr = "$" + parseFloat(nProfit).toFixed(2);
+                document.getElementById('netProfit').innerHTML = nProfitStr;
+                if (nProfit>0) {
+                  document.getElementById('netProfit').style.color = "green";
+                } else {
+                  document.getElementById('netProfit').style.color = "red";
+                }
+              }
+              asBar.oninput = function () {
+                ushares = this.value;
+                navgRound = document.getElementById('spBar').value;
+                document.getElementById('sharesTotal').innerHTML = ushares;
+                nProfit = navgRound * .0038 * .2 / 1000 * ushares - estSharePrice * ushares;
+                nProfitStr = "$" + parseFloat(nProfit).toFixed(2);
+                document.getElementById('netProfit').innerHTML = nProfitStr;
+                if (nProfit>0) {
+                  document.getElementById('netProfit').style.color = "green";
+                } else {
+                  document.getElementById('netProfit').style.color = "red";
+                }
+
+              }
+              document.getElementById('actualStreams').innerHTML = avgRoundStr;
+              var userChoice = 14300000;
+              var choiceDifference = userChoice - avgRound;
+              if (choiceDifference < 0) {
+                choiceDifference = choiceDifference * -1;
+                var choiceDifferenceStr = "-" + myTickFormat2(choiceDifference);
+                document.getElementById('streamsDifference').innerHTML = choiceDifferenceStr;
+                document.getElementById('streamsDifference').style.color = "red";
+              } else {
+                var choiceDifferenceStr = myTickFormat2(choiceDifference);
+                document.getElementById('streamsDifference').innerHTML = choiceDifferenceStr;
+                document.getElementById('streamsDifference').style.color = "green";
+              }
+              var userChoiceStr = myTickFormat2(userChoice);
+              var choiceDifferenceStr = myTickFormat2(choiceDifference);
+              document.getElementById('predictedStreams').innerHTML = userChoiceStr;
+
+              gdata = adata;
+              domain = [1000000,25000000];
+              var margin = { top: 50, right: 50, bottom: 50, left: 50 }, width = 750 - margin.left - margin.right, height = 500 - margin.top - margin.bottom;
+              Nbin = 100;
+              var x = d3.scaleLinear().domain(domain).range([0, width]);
+              var histogram = d3.histogram().domain(x.domain()).thresholds(x.ticks(Nbin));
+              var bins = histogram(gdata);
+              var svg = d3.select("#distribution-graph").append("svg").attr("width", width + margin.left + margin.right).attr("height", height + margin.top + margin.bottom).attr("preserveAspectRatio", "xMinYMin meet").attr("viewBox", "0 0 800 500").append("g").attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+              svg.append("g").attr("transform", "translate(0," + height + ")").call(d3.axisBottom(x).ticks(5).tickFormat(myTickFormat)).attr("stroke-width","0").style("font", "36px serif");
+              var y = d3.scaleLinear().range([height, 0]).domain([0,d3.max(bins, function(d) {return d.length;})]);
+              svg.append("g").call(d3.axisLeft(y).ticks(5).tickFormat(myTickFormat)).attr("stroke-width","0").style("font", "36px serif");
+              svg.selectAll("rect").data(bins).enter().append("rect").attr("x", 1).attr("transform", function(d) {return "translate(" + x(d.x0) + "," + y(d.length) + ")";}).attr("width", function(d) {return x(d.x1) - x(d.x0) - 2;}).attr("height", function(d) {return height - y(d.length);}).style("fill",
+                function(d) { if(avg == userChoice && d.x0<=avg && d.x1>avg){return "black"} else if (userChoice<avg && d.x1>=userChoice && d.x1<=avg) {return "red"} else if (userChoice>avg && d.x1<=userChoice && d.x0>=avg) {return "green"} else {return "lightgray"}});
+            </script>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
